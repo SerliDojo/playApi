@@ -1,0 +1,9 @@
+2017-11-09 23:24:33,620 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2017-11-09 23:24:33,874 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:postgresql://localhost/mediatheque2
+2017-11-09 23:24:35,108 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-11-09 23:24:35,172 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev)
