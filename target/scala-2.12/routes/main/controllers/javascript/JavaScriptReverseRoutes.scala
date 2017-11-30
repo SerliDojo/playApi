@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/mehdi/Developer/codingdojo/playframeworksession/playfromscratch/play-java-seed/conf/routes
-// @DATE:Thu Nov 09 23:24:14 CET 2017
+// @SOURCE:/home/dojo/mediatek/playApi/conf/routes
+// @DATE:Thu Nov 30 19:05:56 CET 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -12,7 +12,7 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:11
+  // @LINE:7
   class ReverseBookController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:13
     def all: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BookController.all",
       """
@@ -30,7 +30,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
+    // @LINE:7
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.BookController.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "books"})
+        }
+      """
+    )
+  
+    // @LINE:12
     def allByCategory: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BookController.allByCategory",
       """
@@ -40,7 +50,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:13
+    // @LINE:14
     def saveBook: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BookController.saveBook",
       """
@@ -72,7 +82,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:9
+  // @LINE:10
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -80,7 +90,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:9
+    // @LINE:10
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

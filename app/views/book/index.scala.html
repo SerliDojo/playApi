@@ -1,0 +1,29 @@
+@(books: List[Book])
+
+@main("Welcome to Mediatek") {
+
+<h1>Welcome Mediatek</h1>
+
+<div id="category">
+<span>porn</span>
+<span>hentai</span>
+</div>
+<ul>
+  @for(book <- books) {
+    <li data-category="@book.getCategory()">@book.getName()</li>
+  }
+</ul>
+
+<script type="text/javascript">
+  var nodesHTML = document.querySelectorAll('#category > span');
+  for (var i = 0; i < nodesHTML.length; i++) {
+    nodesHTML[i].addEventListener('click', function(e) {
+      var nodes = document.querySelectorAll('ul > li[data-category="' + e.target.innerHTML + '"]');
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].innerHTML = 'lol';
+      }
+    });
+  }
+</script>
+
+}

@@ -32,8 +32,8 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 
 Seq[Any](format.raw/*1.4*/("""
 
-"""),_display_(/*3.2*/main("Welcome to Play")/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/("""
-  """),format.raw/*4.3*/("""<h1>Welcome to Play!</h1>
+"""),_display_(/*3.2*/main("Welcome to Mediatek")/*3.29*/ {_display_(Seq[Any](format.raw/*3.31*/("""
+    
 """)))}),format.raw/*5.2*/("""
 """))
       }
@@ -51,11 +51,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 09 20:21:32 CET 2017
-                  SOURCE: /Users/mehdi/Developer/codingdojo/playframeworksession/playfromscratch/play-java-seed/app/views/index.scala.html
-                  HASH: 101fa511ddebe89cb9bf324b96e228b7b59b8d04
-                  MATRIX: 941->1|1037->3|1065->6|1096->29|1135->31|1164->34|1220->61
-                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|37->5
+                  DATE: Thu Nov 30 19:05:56 CET 2017
+                  SOURCE: /home/dojo/mediatek/playApi/app/views/index.scala.html
+                  HASH: 2b82f3fe62ea89e70b77789db3a3c9e0ca78c729
+                  MATRIX: 941->1|1037->3|1065->6|1100->33|1139->35|1175->42
+                  LINES: 28->1|33->1|35->3|35->3|35->3|37->5
                   -- GENERATED --
               */
           

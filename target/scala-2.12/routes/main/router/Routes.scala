@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/mehdi/Developer/codingdojo/playframeworksession/playfromscratch/play-java-seed/conf/routes
-// @DATE:Thu Nov 09 23:24:14 CET 2017
+// @SOURCE:/home/dojo/mediatek/playApi/conf/routes
+// @DATE:Thu Nov 30 19:05:56 CET 2017
 
 package router
 
@@ -17,10 +17,10 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
   HomeController_1: controllers.HomeController,
-  // @LINE:9
-  Assets_2: controllers.Assets,
-  // @LINE:11
+  // @LINE:7
   BookController_0: controllers.BookController,
+  // @LINE:10
+  Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -28,15 +28,15 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
     HomeController_1: controllers.HomeController,
-    // @LINE:9
-    Assets_2: controllers.Assets,
-    // @LINE:11
-    BookController_0: controllers.BookController
-  ) = this(errorHandler, HomeController_1, Assets_2, BookController_0, "/")
+    // @LINE:7
+    BookController_0: controllers.BookController,
+    // @LINE:10
+    Assets_2: controllers.Assets
+  ) = this(errorHandler, HomeController_1, BookController_0, Assets_2, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_1, Assets_2, BookController_0, prefix)
+    new Routes(errorHandler, HomeController_1, BookController_0, Assets_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -45,6 +45,7 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """books""", """controllers.BookController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/book""", """controllers.BookController.allByCategory(category:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/books""", """controllers.BookController.all"""),
@@ -74,11 +75,29 @@ class Routes(
     )
   )
 
-  // @LINE:9
-  private[this] lazy val controllers_Assets_versioned1_route = Route("GET",
+  // @LINE:7
+  private[this] lazy val controllers_BookController_index1_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("books")))
+  )
+  private[this] lazy val controllers_BookController_index1_invoker = createInvoker(
+    BookController_0.index,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BookController",
+      "index",
+      Nil,
+      "GET",
+      this.prefix + """books""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:10
+  private[this] lazy val controllers_Assets_versioned2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned1_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned2_invoker = createInvoker(
     Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -92,11 +111,11 @@ class Routes(
     )
   )
 
-  // @LINE:11
-  private[this] lazy val controllers_BookController_allByCategory2_route = Route("GET",
+  // @LINE:12
+  private[this] lazy val controllers_BookController_allByCategory3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/book")))
   )
-  private[this] lazy val controllers_BookController_allByCategory2_invoker = createInvoker(
+  private[this] lazy val controllers_BookController_allByCategory3_invoker = createInvoker(
     BookController_0.allByCategory(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -110,11 +129,11 @@ class Routes(
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_BookController_all3_route = Route("GET",
+  // @LINE:13
+  private[this] lazy val controllers_BookController_all4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/books")))
   )
-  private[this] lazy val controllers_BookController_all3_invoker = createInvoker(
+  private[this] lazy val controllers_BookController_all4_invoker = createInvoker(
     BookController_0.all,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -128,11 +147,11 @@ class Routes(
     )
   )
 
-  // @LINE:13
-  private[this] lazy val controllers_BookController_saveBook4_route = Route("POST",
+  // @LINE:14
+  private[this] lazy val controllers_BookController_saveBook5_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/books")))
   )
-  private[this] lazy val controllers_BookController_saveBook4_invoker = createInvoker(
+  private[this] lazy val controllers_BookController_saveBook5_invoker = createInvoker(
     BookController_0.saveBook,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -155,28 +174,34 @@ class Routes(
         controllers_HomeController_index0_invoker.call(HomeController_1.index)
       }
   
-    // @LINE:9
-    case controllers_Assets_versioned1_route(params@_) =>
-      call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned1_invoker.call(Assets_2.versioned(path, file))
+    // @LINE:7
+    case controllers_BookController_index1_route(params@_) =>
+      call { 
+        controllers_BookController_index1_invoker.call(BookController_0.index)
       }
   
-    // @LINE:11
-    case controllers_BookController_allByCategory2_route(params@_) =>
-      call(params.fromQuery[String]("category", None)) { (category) =>
-        controllers_BookController_allByCategory2_invoker.call(BookController_0.allByCategory(category))
+    // @LINE:10
+    case controllers_Assets_versioned2_route(params@_) =>
+      call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
+        controllers_Assets_versioned2_invoker.call(Assets_2.versioned(path, file))
       }
   
     // @LINE:12
-    case controllers_BookController_all3_route(params@_) =>
-      call { 
-        controllers_BookController_all3_invoker.call(BookController_0.all)
+    case controllers_BookController_allByCategory3_route(params@_) =>
+      call(params.fromQuery[String]("category", None)) { (category) =>
+        controllers_BookController_allByCategory3_invoker.call(BookController_0.allByCategory(category))
       }
   
     // @LINE:13
-    case controllers_BookController_saveBook4_route(params@_) =>
+    case controllers_BookController_all4_route(params@_) =>
       call { 
-        controllers_BookController_saveBook4_invoker.call(BookController_0.saveBook)
+        controllers_BookController_all4_invoker.call(BookController_0.all)
+      }
+  
+    // @LINE:14
+    case controllers_BookController_saveBook5_route(params@_) =>
+      call { 
+        controllers_BookController_saveBook5_invoker.call(BookController_0.saveBook)
       }
   }
 }

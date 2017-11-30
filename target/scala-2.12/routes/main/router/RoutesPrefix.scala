@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/mehdi/Developer/codingdojo/playframeworksession/playfromscratch/play-java-seed/conf/routes
-// @DATE:Thu Nov 09 23:24:14 CET 2017
+// @SOURCE:/home/dojo/mediatek/playApi/conf/routes
+// @DATE:Thu Nov 30 19:05:56 CET 2017
 
 
 package router {

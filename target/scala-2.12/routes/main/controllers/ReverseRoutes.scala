@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/Users/mehdi/Developer/codingdojo/playframeworksession/playfromscratch/play-java-seed/conf/routes
-// @DATE:Thu Nov 09 23:24:14 CET 2017
+// @SOURCE:/home/dojo/mediatek/playApi/conf/routes
+// @DATE:Thu Nov 30 19:05:56 CET 2017
 
 import play.api.mvc.Call
 
@@ -12,26 +12,32 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:11
+  // @LINE:7
   class ReverseBookController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:12
+    // @LINE:13
     def all(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "api/books")
     }
   
-    // @LINE:11
+    // @LINE:7
+    def index(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "books")
+    }
+  
+    // @LINE:12
     def allByCategory(category:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "api/book" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("category", category)))))
     }
   
-    // @LINE:13
+    // @LINE:14
     def saveBook(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "api/books")
@@ -54,14 +60,14 @@ package controllers {
   
   }
 
-  // @LINE:9
+  // @LINE:10
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:9
+    // @LINE:10
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

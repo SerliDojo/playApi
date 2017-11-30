@@ -6,12 +6,15 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.ebean.Ebean;
 import models.Book;
 import play.libs.Json;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 
 import java.util.List;
 
 public class BookController extends Controller{
+
+    public Result index() {
+        return ok(views.html.book.index.render(Book.getAllBooks()));
+    }
 
     /**
      * save a book.
