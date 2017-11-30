@@ -1,7 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/dojo/mediatek/playApi/conf/application.conf,/home/dojo/mediatek/playApi/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/dojo/mediatek/playApi/conf/routes,/home/dojo/mediatek/playApi/target/scala-2.12/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/dojo/mediatek/playApi/conf/evolutions,/home/dojo/mediatek/playApi/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/dojo/mediatek/playApi/conf/logback.xml,/home/dojo/mediatek/playApi/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/dojo/mediatek/playApi/conf/evolutions/default,/home/dojo/mediatek/playApi/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/dojo/mediatek/playApi/conf/evolutions/default/1.sql,/home/dojo/mediatek/playApi/target/scala-2.12/classes/evolutions/default/1.sql)[0m

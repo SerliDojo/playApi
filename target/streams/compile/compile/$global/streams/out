@@ -1,4 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/home/dojo/mediatek/playApi/app/views/book/index.scala.html:9:15: value name is not a member of models.Book[0m
-[0m[[0m[31merror[0m] [0m[0m    <li>@book.name</li>[0m
-[0m[[0m[31merror[0m] [0m[0m              ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
