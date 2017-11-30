@@ -1,16 +1,21 @@
-@(books: List[Book])
+@(books: List[Book], cats: Set[String])
 
 @main("Welcome to Mediatek") {
 
 <h1>Welcome Mediatek</h1>
-
+<form action="http://localhost:9000/books" method=GET>
 <div id="category">
-<span>porn</span>
-<span>hentai</span>
+  <select id="cat" name="cat">
+    @for(c <- cats) {
+      <option  value="@c">@c</option>
+    }
+  </select>
+  <button type="submit">filter</button>
 </div>
+</form>
 <ul>
   @for(book <- books) {
-    <li data-category="@book.getCategory()">@book.getName()</li>
+    <li data-category="@book.getCategory()">@book.getName() - @book.getCategory()</li>
   }
 </ul>
 

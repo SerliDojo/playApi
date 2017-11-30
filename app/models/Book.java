@@ -22,12 +22,22 @@ public class Book extends Model {
 
     private Date date;
 
+    public Book() {}
+
+    public Book(String name) {
+      this.name = name;
+    }
+
     public static Finder<Integer, Book> find = new Finder<Integer, Book>(Book.class);
 
     public static List<Book> getAllBooks() { return find.all();}
 
     public static List<Book> getByCategory(String category) {
-        return find.query().where().like("category",category).findList();
+        return find.query().where().like("category", category).findList();
+    }
+
+    public static List<Book> getByName(String name) {
+        return find.query().where().like("name", name).findList();
     }
 
 
